@@ -35,7 +35,7 @@ public class GreetingService implements GreetingModel {
         greeting.setId(number);
         greetings.add(greeting);
     }
-    
+
     @Override
     @PostMapping("/greeting/create/{content}")
     public void createGreeting(String content) {
