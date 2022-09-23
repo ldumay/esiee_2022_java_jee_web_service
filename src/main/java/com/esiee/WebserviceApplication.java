@@ -1,6 +1,5 @@
 package com.esiee;
 
-import com.esiee.controllers.HelloWorld;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,8 +11,7 @@ public class WebserviceApplication {
     public static void main(String[] args) {
         SpringApplication.run(WebserviceApplication.class, args);
         //-
-        HelloWorld helloWorld = new HelloWorld();
-        helloWorld.hello("World");
+        System.out.println("[BDD-H2] No prise en charge");
     }
 
     @Bean
