@@ -1,10 +1,11 @@
-package com.esiee;
+package com.esiee.interfaces;
 
+import com.esiee.models.Greeting;
 import java.util.List;
 
-public interface Greet {
+public interface GreetingModel {
 
-    public void createGreeting(long id, String name);
+    public void createGreeting(String name);
 
     public Greeting getGreetings();
 
