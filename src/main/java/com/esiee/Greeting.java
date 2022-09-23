@@ -1,7 +1,10 @@
 package com.esiee;
 
+import lombok.Data;
+
 import java.util.List;
 
+@Data
 public class Greeting implements Greet {
 
     private final long id;
@@ -10,14 +13,6 @@ public class Greeting implements Greet {
     public Greeting(long id, String content) {
         this.id = id;
         this.content = content;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getContent() {
-        return content;
     }
 
     @Override
