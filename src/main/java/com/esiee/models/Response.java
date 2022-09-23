@@ -1,14 +1,14 @@
 package com.esiee.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Response {
 
-    private final String message;
+    private String message;
 
-    public Response(String message) {
-        this.message = message;
-    }
-
-    public String getMessage() {
-        return message;
-    }
 }

@@ -7,7 +7,7 @@ public interface GreetingModel {
 
     public void createGreeting(String name);
 
-    public Greeting getGreetings();
+    public Greeting getGreetings(long id);
 
     public List<Greeting> getAllGreetings();
 
