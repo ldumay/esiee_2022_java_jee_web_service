@@ -5,13 +5,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @author ldumay, hmaxence, xchen
+ * @author ldumay, hmaxence, zchen
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Greeting {
-
     private long id;
     private String content;
 }

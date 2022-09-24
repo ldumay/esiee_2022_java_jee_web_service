@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * @author ldumay, hmaxence, xchen
+ * @author ldumay, hmaxence, zchen
  */
 public interface GreetingRest {
 

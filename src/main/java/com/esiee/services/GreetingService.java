@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author ldumay, hmaxence, xchen
+ * @author ldumay, hmaxence, zchen
  */
 @Data
 @RestController
@@ -104,15 +104,18 @@ public class GreetingService implements GreetingModel {
      *
      * -> Testé et fonctionnel
      */
-    @PostMapping("/greeting/create/")
+//    @PostMapping("/greeting/create/")
+    // not working
+    @RequestMapping(value = "/greeting/create/", method = { RequestMethod.GET, RequestMethod.POST })
     public String createGreetingWithObject(@RequestBody Greeting greeting) {
         boolean isExist = false;
         String result = "Error! Greeting not created.";
         try{
             for(Greeting g : greetings){
-                if(g.getContent().equals(greeting.getContent())){
+                if (g.getContent().equals(greeting.getContent())) {
                     isExist = true;
                     result = "Error! Greeting already exist.";
+                    break;
                 }
             }
             if(!isExist){
@@ -125,6 +128,7 @@ public class GreetingService implements GreetingModel {
                         + " with content:" + greeting.getContent());
             }
         } catch (Exception e) {
+
             System.out.println(info + "Error while creating greeting:" + e);
         }
         return result;
@@ -132,13 +136,10 @@ public class GreetingService implements GreetingModel {
 
     /**
      * Méthode de création d'un objet Greeting via son contenu.
-     * @param content
-     * @return Greeting
-     *
-     * -> Testé et fonctionnel
      */
     @Override
-    @PostMapping("/greeting/create/{content}")
+//    @PostMapping("/greeting/create/{content}")
+    @RequestMapping(value = "/greeting/create/{content}", method = { RequestMethod.GET, RequestMethod.POST })
     public void createGreeting(@PathVariable String content) {
         int number = (greetings.size()>=0) ? greetings.size()+1 : 0;
         System.out.println(info + "Create greeting:" + number + " with content:" + content);
@@ -155,7 +156,8 @@ public class GreetingService implements GreetingModel {
      * -> Non testé et non fonctionnel
      */
     @Override
-    @PutMapping("/greeting/update/id={id}&content={content}")
+//    @PutMapping("/greeting/update/id={id}&content={content}")
+    @RequestMapping(value = "/greeting/update/?id={id}&content={content}", method = { RequestMethod.GET, RequestMethod.POST })
     public void updateGreeting(long id, String content) {
         System.out.println(info + "Update greeting:" + id);
         greetings.set((int) id, new Greeting(id, content));
@@ -191,7 +193,7 @@ public class GreetingService implements GreetingModel {
      * -> Testé et fonctionnel
      */
     @Override
-    @DeleteMapping("/greeting/delete/{id}")
+    @RequestMapping(value = "/greeting/delete/{id}", method = { RequestMethod.GET, RequestMethod.POST })
     public void deleteGreeting(@PathVariable long id) {
         greetings.remove((int) id-1);
         System.out.println(info + "Remove greeting:" + id);
@@ -203,7 +205,7 @@ public class GreetingService implements GreetingModel {
      *
      * -> Testé et fonctionnel
      */
-    @DeleteMapping("/greeting/deleteById/{id}")
+    @RequestMapping(value = "/greeting/deleteById/{id}", method = { RequestMethod.GET, RequestMethod.POST })
     public String deleteGreetingById(@PathVariable long id) {
         String result = greetingNotFound;
         try{
@@ -222,7 +224,7 @@ public class GreetingService implements GreetingModel {
      *
      * -> Testé et fonctionnel
      */
-    @DeleteMapping("/greeting/deleteByContent/{content}")
+    @RequestMapping(value = "/greeting/deleteByContent/{content}", method = { RequestMethod.GET, RequestMethod.POST })
     public String deleteGreetingByContent(@PathVariable String content) {
         String result = greetingNotFound;
         try{

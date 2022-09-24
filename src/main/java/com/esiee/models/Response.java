@@ -5,12 +5,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @author ldumay, hmaxence, xchen
+ * @author ldumay, hmaxence, zchen
  */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Response {
-
     private String message;
 }

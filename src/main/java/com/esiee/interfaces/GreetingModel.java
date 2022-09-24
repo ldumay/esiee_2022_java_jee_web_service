@@ -4,7 +4,7 @@ import com.esiee.models.Greeting;
 import java.util.List;
 
 /**
- * @author ldumay, hmaxence, xchen
+ * @author ldumay, hmaxence, zchen
  */
 public interface GreetingModel {
 

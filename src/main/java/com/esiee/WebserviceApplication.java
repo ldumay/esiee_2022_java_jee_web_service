@@ -16,7 +16,6 @@ import java.util.List;
  * @author ldumay, hmaxence, xchen
  */
 @SpringBootApplication
-@RestController
 public class WebserviceApplication {
 
     public static List<Greeting> greetings;
@@ -24,7 +23,6 @@ public class WebserviceApplication {
 
     /**
      * Code exécuter avant le lancement de l'application.
-     * @return
      */
     @Bean
     public CommandLineRunner run() {
@@ -38,27 +36,27 @@ public class WebserviceApplication {
 
     /**
      * Lancement de l'application.
-     * @param args
      */
     public static void main(String[] args) {
         SpringApplication.run(WebserviceApplication.class, args);
-        //-
+        //-init array
         greetings = new ArrayList<>();
         //-
+        //Check the size of the array, get the init id value with ternary operator
         int number = (greetings.size()>=0) ? greetings.size()+1 : 0;
+        //add greeting id and content into the array
         greetings.add(new Greeting(number, "Velo"));
+        //id value ++
         number++;
+        //add greeting id and content into the array
         greetings.add(new Greeting(number, "Bateau"));
+        //id value ++
         number++;
+        //add greeting id and content into the array
         greetings.add(new Greeting(number, "Train"));
         //-
         greeting = new GreetingService(greetings);
         //-
         System.out.println("[BDD-H2] No prise en charge");
-    }
-
-    @GetMapping("/Hello")
-    public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
-        return String.format("Hello %s!", name);
     }
 }
