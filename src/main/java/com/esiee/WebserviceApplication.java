@@ -1,9 +1,13 @@
 package com.esiee;
 
+import com.esiee.models.Greeting;
+import com.esiee.services.GreetingService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Lanceur de l'application.
@@ -12,6 +16,9 @@ import org.springframework.context.annotation.Bean;
  */
 @SpringBootApplication
 public class WebserviceApplication {
+
+    public static List<Greeting> greetings;
+    public static GreetingService greeting;
 
     /**
      * Code exécuter avant le lancement de l'application.
@@ -22,6 +29,8 @@ public class WebserviceApplication {
         return (args) -> {
             //-
             System.out.println("Hello world !");
+            //-
+
         };
     }
 
@@ -31,6 +40,17 @@ public class WebserviceApplication {
      */
     public static void main(String[] args) {
         SpringApplication.run(WebserviceApplication.class, args);
+        //-
+        greetings = new ArrayList<>();
+        //-
+        int number = (greetings.size()>=0) ? greetings.size()+1 : 0;
+        greetings.add(new Greeting(number, "Velo"));
+        number++;
+        greetings.add(new Greeting(number, "Bateau"));
+        number++;
+        greetings.add(new Greeting(number, "Train"));
+        //-
+        greeting = new GreetingService(greetings);
         //-
         System.out.println("[BDD-H2] No prise en charge");
     }
