@@ -45,6 +45,10 @@ GET : http://localhost:8080/greeting/all/
 ]
 ```
 
+Exemple en image
+
+![img](_image/Postman_test_1.png)
+
 #### 3.1.2 - ✅ Méthode 2 - `/getById/{id}`
 
 Récupérer un object spécifique avec un paramètre "id".
@@ -96,6 +100,10 @@ POST : http://localhost:8080/greeting/create/
 }
 ```
 
+Exemple en image
+
+![img](_image/Postman_test_2.png)
+
 #### 3.2.2 - ✅ Méthode 2 - `/create/{content}`
 
 Ajouter un objet avec un paramètre "content".
@@ -126,6 +134,10 @@ PUT : http://localhost:8080/greeting/update/
 
 Renvoi : `Greeting 2 updated`
 
+Exemple en image
+
+![img](_image/Postman_test_3.png)
+
 ### 3.4 - Supprimer un object
 
 #### 3.4.1 - ✅ Méthode 1 - `/delete/{id}`
@@ -151,3 +163,7 @@ DELETE : http://localhost:8080/greeting/deleteByContent/Velo
 ```
 Greeting Velo removed
 ```
+
+Exemple en image
+
+![img](_image/Postman_test_4.png)
