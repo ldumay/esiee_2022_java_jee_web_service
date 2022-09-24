@@ -3,6 +3,9 @@ package com.esiee.interfaces;
 import com.esiee.models.Greeting;
 import java.util.List;
 
+/**
+ * @author ldumay, hmaxence, xchen
+ */
 public interface GreetingModel {
 
     public void createGreeting(String name);
