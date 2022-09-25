@@ -106,6 +106,7 @@ public class GreetingService implements GreetingModel {
      */
     // not working
 //    @RequestMapping(value = "/greeting/create/", method = { RequestMethod.GET, RequestMethod.POST })
+    //need an object to work http://localhost:8080/greeting/create/{"id":1, "content":"Saif"}
     @PostMapping("/greeting/create/")
     public String createGreetingWithObject(@RequestBody Greeting greeting) {
         boolean isExist = false;
