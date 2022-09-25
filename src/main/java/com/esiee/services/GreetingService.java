@@ -104,9 +104,9 @@ public class GreetingService implements GreetingModel {
      *
      * -> Testé et fonctionnel
      */
-//    @PostMapping("/greeting/create/")
     // not working
-    @RequestMapping(value = "/greeting/create/", method = { RequestMethod.GET, RequestMethod.POST })
+//    @RequestMapping(value = "/greeting/create/", method = { RequestMethod.GET, RequestMethod.POST })
+    @PostMapping("/greeting/create/")
     public String createGreetingWithObject(@RequestBody Greeting greeting) {
         boolean isExist = false;
         String result = "Error! Greeting not created.";
@@ -157,10 +157,12 @@ public class GreetingService implements GreetingModel {
      */
     @Override
 //    @PutMapping("/greeting/update/id={id}&content={content}")
-    @RequestMapping(value = "/greeting/update/?id={id}&content={content}", method = { RequestMethod.GET, RequestMethod.POST })
-    public void updateGreeting(long id, String content) {
-        System.out.println(info + "Update greeting:" + id);
-        greetings.set((int) id, new Greeting(id, content));
+    @RequestMapping(value = "/greeting/update/{id}/{content}", method = { RequestMethod.GET })
+    public void updateGreeting(@PathVariable long id, @PathVariable String content) {
+
+        long localId = (id>0)?id-1:0;
+        System.out.println(info + "Update greeting:" + localId);
+        greetings.set((int) localId, new Greeting(id, content));
     }
 
     /**
