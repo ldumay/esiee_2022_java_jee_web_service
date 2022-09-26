@@ -2,6 +2,8 @@ package com.esiee;
 
 import com.esiee.models.Greeting;
 import com.esiee.services.GreetingService;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +17,7 @@ import java.util.List;
  * @author ldumay, hmaxence, xchen
  */
 @SpringBootApplication
+@EnableSwagger2
 public class WebserviceApplication {
 
     public static List<Greeting> greetings;
