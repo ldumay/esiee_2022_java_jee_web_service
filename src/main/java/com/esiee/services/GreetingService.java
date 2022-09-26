@@ -4,6 +4,8 @@ import com.esiee.interfaces.GreetingModel;
 import com.esiee.models.Greeting;
 import lombok.Data;
 import org.springframework.web.bind.annotation.*;
+
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -148,23 +150,31 @@ public class GreetingService implements GreetingModel {
     }
 
     /**
-     * ❌❌❌
      * Méthode de mise à jour d'un objet Greeting via son id et son contenu.
      * @param id
      * @param content
-     * @return Greeting
-     *
-     * -> Non testé et non fonctionnel
      */
     @Override
 //    @PutMapping("/greeting/update/id={id}&content={content}")
     @RequestMapping(value = "/greeting/update/{id}/{content}", method = { RequestMethod.GET })
     public void updateGreeting(@PathVariable long id, @PathVariable String content) {
-
+        //get the right position of the object in the list
         long localId = (id>0)?id-1:0;
-        System.out.println(info + "Update greeting:" + localId);
-        greetings.set((int) localId, new Greeting(id, content));
+
+        for (Greeting greeting : greetings){
+            if (!(greeting.getId() == id)){
+                System.out.println(info + id +" does not exist");
+                break;
+            }
+            System.out.println(info + "Update greeting:" + localId);
+            greetings.set((int) localId, new Greeting(id, content));
+            break;
+        }
+
     }
+
+
+//    }
 
     /**
      * Méthode de suppression d'un objet Greeting via l'objet Greeting.
