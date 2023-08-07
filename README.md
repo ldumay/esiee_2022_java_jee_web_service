@@ -1,4 +1,4 @@
-# ESIEE_3_JEE_Web_Service
+# ESIEE-IT - JEE Web Service
 
 > 🚨 **Projet déplacer ici ▶▶ : [https://github.com/2023-esiee-projectlab/esiee-it_2022_java_jee_web_service](https://github.com/2023-esiee-projectlab/esiee-it_2022_java_jee_web_service)**
 
